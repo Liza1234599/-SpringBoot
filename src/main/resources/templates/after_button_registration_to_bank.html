@@ -1,0 +1,22 @@
+<html xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bank1</title>
+</head>
+<body>
+<h2> Registration to Bank1</h2>
+    <br>
+<form:form action="lkk" modelAttribute="user" method="get">
+
+
+    Your login: <form:input path="username"/>
+        <form:errors path="username"/>
+        <br><br>
+
+    Your password: <form:input path="password"/>
+        <form:errors path="password"/>
+        <br><br>
+
+    <input type="submit" value="Registration">
+</form:form>
+</body>
+</html>
