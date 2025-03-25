@@ -7,6 +7,24 @@
 
 <h2> Logging to Bank1 </h2>
 
+<form th:action="@{/bank/lkk_authorization}" th:object="${userAut}" method="get">
+
+    Your login:
+    <label>
+        <input type="text" th:field="*{username}" />
+    </label>
+
+    <br><br>
+
+    Your password:
+    <label>
+        <input type="text" th:field="*{password}"/>
+    </label>
+
+    <br><br>
+
+    <button type="submit">Authorization</button>
+</form>
 
 </body>
 </html>

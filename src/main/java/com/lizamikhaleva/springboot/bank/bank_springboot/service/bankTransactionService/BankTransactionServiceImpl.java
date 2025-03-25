@@ -1,7 +1,7 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.service.bankTransactionService;
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.dao.BankTransactionRepository;
-import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransaction;
+import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransactionEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,19 +15,19 @@ public class BankTransactionServiceImpl implements BankTransactionService {
     private BankTransactionRepository bankTransactionRepository;
 
     @Override
-    public List<BankTransaction> getAllTransaction() {
+    public List<BankTransactionEntity> getAllTransaction() {
         return bankTransactionRepository.findAll();
     }
 
     @Override
-    public void saveTransaction(BankTransaction bankTransact) {
+    public void saveTransaction(BankTransactionEntity bankTransact) {
         bankTransactionRepository.save(bankTransact);
     }
 
     @Override
-    public BankTransaction getTransaction(int id) {
-        BankTransaction transaction = null;
-        Optional<BankTransaction> optional = bankTransactionRepository.findById(id);
+    public BankTransactionEntity getTransaction(int id) {
+        BankTransactionEntity transaction = null;
+        Optional<BankTransactionEntity> optional = bankTransactionRepository.findById(id);
 
         if (optional.isPresent()) {
             transaction = optional.get();
@@ -37,7 +37,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
     }
 
     @Override
-    public List<BankTransaction> findAllByIdUser(int userId) {
+    public List<BankTransactionEntity> findAllByIdUser(int userId) {
         return bankTransactionRepository.findAllByIdUser(userId);
     }
 

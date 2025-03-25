@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
     @Id
     @Column(name = "id")
@@ -29,11 +29,11 @@ public class User {
     @Column(name = "balance")
     private BigDecimal balance = new BigDecimal("2000");
 
-    public User() {
+    public UserEntity() {
 
     }
 
-    public User(String username, String password) {
+    public UserEntity(String username, String password) {
         this.username = username;
         this.password = password;
     }

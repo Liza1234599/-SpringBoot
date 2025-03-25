@@ -1,16 +1,16 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.service.userService;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.entity.User;
+import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
 
 import java.util.List;
 
 public interface UserService {
 
-    void saveUser(User user);
+    void saveUser(UserEntity user);
 
     void deleteEmployee(int id);
 
-    List<User> findAll();
+    List<UserEntity> findAll();
 
     boolean checkLoginToDB(String username);
 

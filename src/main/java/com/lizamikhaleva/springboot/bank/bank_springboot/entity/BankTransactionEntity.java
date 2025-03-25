@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "transaction")
-public class BankTransaction {
+public class BankTransactionEntity {
 
     @Id
     @Column(name = "id")
@@ -25,7 +25,7 @@ public class BankTransaction {
 //    private String transaction;
 //    private List<String> transactions;
 
-    public BankTransaction() {
+    public BankTransactionEntity() {
 //        transactions = new ArrayList<>();
 //        transactions.add("Пополнение счета");
 //        transactions.add("Снятие со счета");

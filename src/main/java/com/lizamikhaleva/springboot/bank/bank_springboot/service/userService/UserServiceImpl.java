@@ -1,7 +1,7 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.service.userService;
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.dao.UserRepository;
-import com.lizamikhaleva.springboot.bank.bank_springboot.entity.User;
+import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public void saveUser(User user) {
+    public void saveUser(UserEntity user) {
         userRepository.save(user);
     }
 
@@ -24,17 +24,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAll() {
+    public List<UserEntity> findAll() {
         return userRepository.findAll();
     }
 
     @Override
     public boolean checkLoginToDB(String username) {
-        return userRepository.existsByUsername(username);
+        return userRepository.existsUserEntityByUsername(username);
     }
 
     @Override
     public boolean checkLoginAndPassword(String username, String password) {
-        return userRepository.existsByUsernameAndPassword(username, password);
+        return userRepository.existsUserEntityByUsernameAndPassword(username, password);
     }
 }

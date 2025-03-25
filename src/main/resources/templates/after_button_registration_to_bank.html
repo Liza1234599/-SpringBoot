@@ -5,22 +5,25 @@
 <body>
 <h2> Registration to Bank1</h2>
     <br>
-<form th:action="@{/lkk}" th:object="${user}" method="get">
+<form th:action="@{/bank/lkk_registration}" th:object="${userReg}" method="get">
 
+    Your login:
+    <label>
+        <input type="text" th:field="*{username}" />
+        <div th:errors="*{username}"></div>
+    </label>
 
-    Your login: <label>
-    <input type="text" th:field="*{username}"/>
-</label>
-    <form th:errors path="username"></form>
-        <br><br>
+    <br><br>
 
-    Your password: <label>
-    <input type="text" th:field="*{password}"/>
-</label>
-    <form th:errors path="password"></form>
-        <br><br>
+    Your password:
+    <label>
+        <input type="text" th:field="*{password}"/>
+        <div th:errors="*{password}"></div>
+    </label>
 
-    <input type="submit" value="Registration">
+    <br><br>
+
+    <button type="submit">Registration</button>
 </form>
 </body>
 </html>

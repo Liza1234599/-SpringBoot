@@ -1,17 +1,17 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.service.bankTransactionService;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransaction;
+import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransactionEntity;
 
 import java.util.List;
 
 public interface BankTransactionService {
 
-    List<BankTransaction> getAllTransaction();
+    List<BankTransactionEntity> getAllTransaction();
 
-    void saveTransaction(BankTransaction bankTransact);
+    void saveTransaction(BankTransactionEntity bankTransact);
 
-    BankTransaction getTransaction(int id);
+    BankTransactionEntity getTransaction(int id);
 
-    List<BankTransaction> findAllByIdUser(int userId);
+    List<BankTransactionEntity> findAllByIdUser(int userId);
 
 }
