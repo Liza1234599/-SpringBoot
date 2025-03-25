@@ -1,22 +1,26 @@
-<html xmlns:form="http://www.w3.org/1999/xhtml">
+<html xmlns:form="http://www.w3.org/1999/xhtml" lang="">
 <head>
-    <title>Bank1</title>
+    <title>Bank</title>
 </head>
 <body>
 <h2> Registration to Bank1</h2>
     <br>
-<form:form action="lkk" modelAttribute="user" method="get">
+<form th:action="@{/lkk}" th:object="${user}" method="get">
 
 
-    Your login: <form:input path="username"/>
-        <form:errors path="username"/>
+    Your login: <label>
+    <input type="text" th:field="*{username}"/>
+</label>
+    <form th:errors path="username"></form>
         <br><br>
 
-    Your password: <form:input path="password"/>
-        <form:errors path="password"/>
+    Your password: <label>
+    <input type="text" th:field="*{password}"/>
+</label>
+    <form th:errors path="password"></form>
         <br><br>
 
     <input type="submit" value="Registration">
-</form:form>
+</form>
 </body>
 </html>

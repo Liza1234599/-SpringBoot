@@ -15,8 +15,25 @@ public class BankServiceImpl implements BankService {
     @Autowired
     private BankTransactionService bankTransactionService;
 
-    public void loggingToBank(String username, String password){
+
+    public boolean cheklogintodb(String username, String password){
         userService.saveUser(new User(username, password));
+        return true;
     }
 
+    /**
+     * Проверяем есть ли пользователь с таким логином в бд
+     *
+     * @param username логин
+     * @return
+     */
+    @Override
+    public boolean checkLoginToDb(String username) {
+        return userService.checkLoginToDB(username);
+    }
+
+    @Override
+    public boolean checkLoginAndPassword(String username, String password) {
+        return userService.checkLoginAndPassword(username, password);
+    }
 }

@@ -27,4 +27,14 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+    @Override
+    public boolean checkLoginToDB(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    @Override
+    public boolean checkLoginAndPassword(String username, String password) {
+        return userRepository.existsByUsernameAndPassword(username, password);
+    }
 }

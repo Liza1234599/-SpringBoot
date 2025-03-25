@@ -11,4 +11,8 @@ public interface UserService {
     void deleteEmployee(int id);
 
     List<User> findAll();
+
+    boolean checkLoginToDB(String username);
+
+    boolean checkLoginAndPassword(String username, String password);
 }
