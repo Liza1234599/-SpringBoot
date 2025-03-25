@@ -34,4 +34,9 @@ public class MyController {
 
         return "after_button_registration_to_bank";
     }
+
+    @GetMapping("/lkk")
+    public String lkk(Model model) {
+        return "lkk_user";
+    }
 }
