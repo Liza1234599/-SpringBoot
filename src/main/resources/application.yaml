@@ -15,4 +15,4 @@ spring:
     properties:
       hibernate:
         format-sql: true
-debug: true
+debug: false

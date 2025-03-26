@@ -1,30 +1,31 @@
-
-<html lang="">
+<html xmlns:form="http://www.w3.org/1999/xhtml" lang="">
 <head>
     <title>Bank</title>
 </head>
 <body>
-
 <h2> Logging to Bank1 </h2>
-
+    <br>
 <form th:action="@{/bank/lkk_authorization}" th:object="${userAut}" method="post">
 
-    Your login:
-    <label>
-        <input type="text" th:field="*{username}" />
-    </label>
+    <div>
+        <label for="username">Your login:</label>
+        <input type="text" id="username" th:field="*{username}"/>
+    </div>
 
     <br><br>
 
-    Your password:
-    <label>
-        <input type="text" th:field="*{password}"/>
-    </label>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" th:field="*{password}" />
+    </div>
+
+    <div th:if="${#fields.hasErrors()}" style="color: red;">
+        <p th:text="${#fields.errors()}"></p>
+    </div>
 
     <br><br>
 
     <button type="submit">Authorization</button>
 </form>
-
 </body>
 </html>

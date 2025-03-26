@@ -1,7 +1,8 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.controller;
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
-import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModel;
+import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelAuthorization;
+import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelRegistration;
 import com.lizamikhaleva.springboot.bank.bank_springboot.service.bankService.BankService;
 import com.lizamikhaleva.springboot.bank.bank_springboot.service.bankTransactionService.BankTransactionService;
 import com.lizamikhaleva.springboot.bank.bank_springboot.service.userService.UserService;
@@ -28,6 +29,8 @@ public class MyController {
     @Autowired
     private BankTransactionService bankTransactionService;
 
+    private UserEntity userEntity;
+
     @GetMapping
     public String getLkkUser(){
 
@@ -36,59 +39,41 @@ public class MyController {
 
     @GetMapping("/authorization")
     public String loggingToBank(Model model) {
-        model.addAttribute("userAut", new UserModel());
+        model.addAttribute("userAut", new UserModelAuthorization());
         return "after_button_logging_to_bank";
     }
 
     @PostMapping("/lkk_authorization")
-    public String lkkA(@ModelAttribute("userAut") @Valid UserModel user
-            , BindingResult result) {
-        String username = user.getUsername();
-        String password = user.getPassword();
-        System.out.println("result.hasErrors() = " + result.hasErrors());
-        System.out.println("bankService.checkLoginToDb(username) = " + bankService.checkLoginToDb(username));
+    public String lkk(@ModelAttribute("userAut") @Valid UserModelAuthorization user
+            , BindingResult result, Model model) {
 
-        if(result.hasErrors()) { //Валидация не работает???
-            System.out.println("lkk_authorization hasErrors()");
+        if(result.hasErrors()) {
             return "after_button_logging_to_bank";
-        }
-        else if(bankService.checkLoginAndPassword(username, password)){
-            System.out.println("lkk_authorization checkLoginAndPassword()");
-            return "lkk_user";
         }
         else {
-            System.out.println("lkk_authorization else");
-            return "after_button_logging_to_bank";
+            model.addAttribute("user", user);
+            return "lkk_user";
         }
     }
 
     @GetMapping("/registration")
     public String registrationForm(Model model) {
-        model.addAttribute("userReg", new UserModel());
+        model.addAttribute("userReg", new UserModelRegistration());
 
         return "after_button_registration_to_bank";
     }
 
     @PostMapping("/lkk_registration")
-    public String lkk(@ModelAttribute("userReg") @Valid UserModel user
-            , BindingResult result) {
-        String username = user.getUsername();
-        String password = user.getPassword();
-//        System.out.println("result.hasErrors() = " + result.hasErrors());
-//        System.out.println("!bankService.checkLoginToDb(username) = " + !bankService.checkLoginToDb(username));
+    public String lkk(@ModelAttribute("userReg") @Valid UserModelRegistration user
+            , BindingResult result, Model model) {
 
-        if(result.hasErrors()) { //Валидация не работает???
-//            System.out.println("lkk_registration hasErrors()");
+        if(result.hasErrors()) {
             return "after_button_registration_to_bank";
-        }
-        else if(!bankService.checkLoginToDb(username)){
-//            System.out.println("lkk_registration checkLoginToDb()");
-            userService.saveUser(new UserEntity(username, password));
-            return "lkk_user";
         }
         else {
-            System.out.println("lkk_registration else");
-            return "after_button_registration_to_bank";
+            userService.saveUser(new UserEntity(user.getUsername(), user.getPassword()));
+            model.addAttribute("user", user);
+            return "lkk_user";
         }
     }
 }

@@ -1,18 +1,15 @@
-<html xmlns:form="http://www.w3.org/1999/xhtml">
+<html lang="">
 <head>
     <title>Bank1</title>
 </head>
 <body>
 <h2> LKK Bank </h2>
-<h3 th:text="'Текущий баланс составляет: ' + ${userAut.balance} + ' рублей'"></h3>
+<h3 th:text="'Текущий баланс составляет: ' + ${user.balance} + ' рублей'"></h3>
 <br> <br>
 
 <h4> Операции по счету </h4>
-<form:form action="lkk" modelAttribute="operation">
-    Что вы хотите сделать? <form:select path="transaction">
-        <form:options items="${user.transactions}"/>
-</form:select>
-</form:form>
+
+Что вы хотите сделать?
 
 </body>
 </html>

@@ -1,13 +1,15 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.model;
 
+import com.lizamikhaleva.springboot.bank.bank_springboot.validation.uniquaeUsername.UniqueUsername;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 
-public class UserModel {
+public class UserModelRegistration {
 
     @Size(min = 5, max = 26, message = "Логин должен быть от 5 до 25 имволов ")
     @NotBlank(message = "Поле не должно быть пустым")
+    @UniqueUsername
     private String username;
 
     @Size(min = 9, max = 51, message = "Пароль должен содержать " +
@@ -18,11 +20,11 @@ public class UserModel {
 
     private BigDecimal balance = new BigDecimal("2000");
 
-    public UserModel() {
+    public UserModelRegistration() {
 
     }
 
-    public UserModel(String username, String password) {
+    public UserModelRegistration(String username, String password) {
         this.username = username;
         this.password = password;
     }
