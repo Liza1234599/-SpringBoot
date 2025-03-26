@@ -19,16 +19,14 @@ public class BankTransactionEntity {
     @Column(name = "amount")
     private BigDecimal amount;
 
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "id_user")
+//    private UserEntity userEntity;
+
     @Column(name = "id_user")
     private int idUser;
 
-//    private String transaction;
-//    private List<String> transactions;
-
     public BankTransactionEntity() {
-//        transactions = new ArrayList<>();
-//        transactions.add("Пополнение счета");
-//        transactions.add("Снятие со счета");
     }
 
     public int getId() {
@@ -54,6 +52,15 @@ public class BankTransactionEntity {
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
+
+//    public UserEntity getUserEntity() {
+//        return userEntity;
+//    }
+//
+//    public void setUserEntity(UserEntity userEntity) {
+//        this.userEntity = userEntity;
+//    }
+
 
     public int getIdUser() {
         return idUser;

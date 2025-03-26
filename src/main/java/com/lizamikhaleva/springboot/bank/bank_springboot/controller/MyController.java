@@ -40,8 +40,9 @@ public class MyController {
         return "after_button_logging_to_bank";
     }
 
-    @GetMapping("/lkk_authorization")
-    public String lkkA(@ModelAttribute("userAut") @Valid UserModel user, BindingResult result) {
+    @PostMapping("/lkk_authorization")
+    public String lkkA(@ModelAttribute("userAut") @Valid UserModel user
+            , BindingResult result) {
         String username = user.getUsername();
         String password = user.getPassword();
         System.out.println("result.hasErrors() = " + result.hasErrors());
@@ -68,19 +69,20 @@ public class MyController {
         return "after_button_registration_to_bank";
     }
 
-    @GetMapping("/lkk_registration")
-    public String lkk(@ModelAttribute("userReg") @Valid UserModel user, BindingResult result) {
+    @PostMapping("/lkk_registration")
+    public String lkk(@ModelAttribute("userReg") @Valid UserModel user
+            , BindingResult result) {
         String username = user.getUsername();
         String password = user.getPassword();
-        System.out.println("result.hasErrors() = " + result.hasErrors());
-        System.out.println("!bankService.checkLoginToDb(username) = " + !bankService.checkLoginToDb(username));
+//        System.out.println("result.hasErrors() = " + result.hasErrors());
+//        System.out.println("!bankService.checkLoginToDb(username) = " + !bankService.checkLoginToDb(username));
 
         if(result.hasErrors()) { //Валидация не работает???
-            System.out.println("lkk_registration hasErrors()");
+//            System.out.println("lkk_registration hasErrors()");
             return "after_button_registration_to_bank";
         }
         else if(!bankService.checkLoginToDb(username)){
-            System.out.println("lkk_registration checkLoginToDb()");
+//            System.out.println("lkk_registration checkLoginToDb()");
             userService.saveUser(new UserEntity(username, password));
             return "lkk_user";
         }

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 public class UserModel {
 
-    @Size(max = 51, message = "Логин превышает 50 символов")
+    @Size(min = 5, max = 26, message = "Логин должен быть от 5 до 25 имволов ")
     @NotBlank(message = "Поле не должно быть пустым")
     private String username;
 
@@ -36,21 +36,19 @@ public class UserModel {
                 '}';
     }
 
-    public @Size(max = 51, message = "Логин превышает 50 символов") @NotBlank(message = "Поле не должно быть пустым") String getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(@Size(max = 51, message = "Логин превышает 50 символов") @NotBlank(message = "Поле не должно быть пустым") String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public @Size(min = 9, max = 51, message = "Пароль должен содержать " +
-            "не менее 10 и не более 50 символов") @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).+$", message = "Пароль должен содержать один символ, одну большую и заглавную букву") @NotBlank(message = "Поле не должно быть пустым") String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(@Size(min = 9, max = 51, message = "Пароль должен содержать " +
-            "не менее 10 и не более 50 символов") @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).+$", message = "Пароль должен содержать один символ, одну большую и заглавную букву") @NotBlank(message = "Поле не должно быть пустым") String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

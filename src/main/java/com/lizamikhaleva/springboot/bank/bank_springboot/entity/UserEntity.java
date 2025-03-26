@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -28,6 +29,11 @@ public class UserEntity {
 
     @Column(name = "balance")
     private BigDecimal balance = new BigDecimal("2000");
+
+//    @OneToMany(mappedBy = "userEntity"
+//            , cascade = CascadeType.ALL
+//            , fetch = FetchType.EAGER)
+//    private List<BankTransactionEntity> transactList;
 
     public UserEntity() {
 
@@ -81,4 +87,12 @@ public class UserEntity {
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
+
+//    public List<BankTransactionEntity> getTransactList() {
+//        return transactList;
+//    }
+//
+//    public void setTransactList(List<BankTransactionEntity> transactList) {
+//        this.transactList = transactList;
+//    }
 }
