@@ -16,16 +16,9 @@ public class BankServiceImpl implements BankService {
     private BankTransactionService bankTransactionService;
 
 
-    public boolean cheklogintodb(String username, String password){
-        userService.saveUser(new UserEntity(username, password));
-        return true;
-    }
-
     /**
      * Проверяем есть ли пользователь с таким логином в бд
-     *
      * @param username логин
-     * @return
      */
     @Override
     public boolean checkLoginToDb(String username) {
@@ -36,4 +29,15 @@ public class BankServiceImpl implements BankService {
     public boolean checkLoginAndPassword(String username, String password) {
         return userService.checkLoginAndPassword(username, password);
     }
+
+    @Override
+    public UserEntity findUserByUsernameAndPassword(String username, String password) {
+        return userService.findUserByUsernameAndPassword(username, password);
+    }
+
+    @Override
+    public void saveUser(UserEntity user) {
+        userService.saveUser(user);
+    }
+
 }

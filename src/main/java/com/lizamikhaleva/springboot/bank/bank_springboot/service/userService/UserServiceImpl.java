@@ -37,4 +37,9 @@ public class UserServiceImpl implements UserService {
     public boolean checkLoginAndPassword(String username, String password) {
         return userRepository.existsUserEntityByUsernameAndPassword(username, password);
     }
+
+    @Override
+    public UserEntity findUserByUsernameAndPassword(String username, String password) {
+        return userRepository.findUserEntitiesByUsernameAndPassword(username, password);
+    }
 }

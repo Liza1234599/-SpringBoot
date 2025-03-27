@@ -2,12 +2,16 @@ package com.lizamikhaleva.springboot.bank.bank_springboot.model;
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.validation.loginMatch.LoginMatch;
 
+import java.math.BigDecimal;
+
 @LoginMatch
 public class UserModelAuthorization {
 
     private String username;
 
     private String password;
+
+    private BigDecimal balance;
 
     public String getUsername() {
         return username;
@@ -24,4 +28,6 @@ public class UserModelAuthorization {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

@@ -15,4 +15,6 @@ public interface UserService {
     boolean checkLoginToDB(String username);
 
     boolean checkLoginAndPassword(String username, String password);
+
+    UserEntity findUserByUsernameAndPassword(String username, String password);
 }
