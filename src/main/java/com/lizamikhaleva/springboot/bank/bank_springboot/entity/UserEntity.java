@@ -28,7 +28,8 @@ public class UserEntity {
     private String password;
 
     @Column(name = "balance")
-    private BigDecimal balance = new BigDecimal("2000");
+
+    private BigDecimal balance;
 
 //    @OneToMany(mappedBy = "userEntity"
 ////            , cascade = CascadeType.ALL

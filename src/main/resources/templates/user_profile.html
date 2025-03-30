@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2> User profile </h2>
+    <h3 th:text="'Логин: ' + ${user.getUsername()}"> </h3>
+    <h3 th:text="'Текущий баланс составляет: ' + ${user.balance} + ' рублей'"></h3>
+    <br> <br>
+    <button onclick="location.href='lkk_user'"> Back </button>
+</body>
+</html>

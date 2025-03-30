@@ -17,4 +17,7 @@ public interface UserService {
     boolean checkLoginAndPassword(String username, String password);
 
     UserEntity findUserByUsernameAndPassword(String username, String password);
+
+    void updateUser(UserEntity user);
+
 }

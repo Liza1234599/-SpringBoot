@@ -41,4 +41,9 @@ public class BankTransactionServiceImpl implements BankTransactionService {
         return bankTransactionRepository.findAllByIdUser(userId);
     }
 
+    @Override
+    public List<BankTransactionEntity> findAllByIdUserAndType(int idUser, String type) {
+        return bankTransactionRepository.findAllByIdUserAndType(idUser, type);
+    }
+
 }

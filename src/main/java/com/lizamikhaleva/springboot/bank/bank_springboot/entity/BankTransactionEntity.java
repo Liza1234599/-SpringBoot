@@ -29,6 +29,12 @@ public class BankTransactionEntity {
     public BankTransactionEntity() {
     }
 
+    public BankTransactionEntity(String type, BigDecimal amount, int idUser) {
+        this.type = type;
+        this.amount = amount;
+        this.idUser = idUser;
+    }
+
     public int getId() {
         return id;
     }

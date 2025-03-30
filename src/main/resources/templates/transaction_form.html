@@ -1,0 +1,36 @@
+<html lang="" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Bank1</title>
+</head>
+<body>
+<h2> Transactions </h2>
+<br>
+<h4> Операции по счету </h4>
+<form th:action="@{/bank/check_transaction}" th:object="${transaction}" method="post">
+
+    <div>
+        <label for="type">Type operation</label>
+        <select id="type" th:field="*{type}">
+            <option th:each="type : ${typeTransaction}"
+                    th:value="${type}"
+                    th:text="${type.typeTransaction}">
+            </option>
+        </select>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="amount">Value </label>
+        <input type="text" id="amount" th:field="*{amount}" />
+        <div th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" style="color: #c5001c;">
+            Errors value
+        </div>
+    </div>
+
+    <br>
+
+    <button type="submit">Get transaction</button>
+</form>
+</body>
+</html>

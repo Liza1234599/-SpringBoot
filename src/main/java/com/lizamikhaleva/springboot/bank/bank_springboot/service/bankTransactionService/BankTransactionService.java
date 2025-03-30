@@ -14,4 +14,7 @@ public interface BankTransactionService {
 
     List<BankTransactionEntity> findAllByIdUser(int userId);
 
+    List<BankTransactionEntity> findAllByIdUserAndType(int idUser, String type);
+
+
 }

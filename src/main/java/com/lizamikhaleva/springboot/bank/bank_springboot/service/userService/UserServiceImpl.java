@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService {
     public UserEntity findUserByUsernameAndPassword(String username, String password) {
         return userRepository.findUserEntitiesByUsernameAndPassword(username, password);
     }
+
+    @Override
+    public void updateUser(UserEntity user) {
+        userRepository.save(user);
+    }
 }

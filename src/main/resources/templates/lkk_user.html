@@ -7,14 +7,18 @@
 <h3 th:text="'Текущий баланс составляет: ' + ${user.balance} + ' рублей'"></h3>
 <br> <br>
 
-<h4> Операции по счету </h4>
+<h4> Показать операции по счету </h4>
+<button onclick="location.href='transactionPut'"> Пополнение </button>
+<button onclick="location.href='transactionTakeOff'"> Снятие со счета </button>
+<button onclick="location.href='transactionAll'"> Все </button>
+
 
 Что вы хотите сделать?
 
 <br>
-<button onclick="location.href='bank/transaction'"> Transaction </button>
-<button onclick="location.href='bank/profile'"> Profile </button>
-<button onclick="location.href='bank'"> Exit </button>
+<button onclick="location.href='transaction'"> Transaction </button>
+<button onclick="location.href='profile'"> Profile </button>
+<button onclick="location.href='/bank'"> Exit </button>
 
 </body>
 </html>

@@ -1,9 +1,11 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.controller;
 
+import com.lizamikhaleva.springboot.bank.bank_springboot.TypeTransaction;
+import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransactionEntity;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
+import com.lizamikhaleva.springboot.bank.bank_springboot.model.BankTransactionModel;
 import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelAuthorization;
 import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelRegistration;
-import com.lizamikhaleva.springboot.bank.bank_springboot.service.bankService.BankService;
 import com.lizamikhaleva.springboot.bank.bank_springboot.service.bankTransactionService.BankTransactionService;
 import com.lizamikhaleva.springboot.bank.bank_springboot.service.userService.UserService;
 import jakarta.validation.Valid;
@@ -11,17 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 
 //@RestController
 @Controller
 @RequestMapping("/bank")
 //@Validated
 public class MyController {
-
-//    @Autowired
-//    private BankService bankService;
 
     @Autowired
     private UserService userService;
@@ -30,7 +30,6 @@ public class MyController {
     private BankTransactionService bankTransactionService;
 
     private UserEntity userEntity;
-
 
     /**
      * Метод открытия первой страницы
@@ -62,7 +61,7 @@ public class MyController {
      * @param model новосозданная модель для передачи в html lkk_user
      */
     @PostMapping("/lkk_authorization")
-    public String lkk(@ModelAttribute("userAut") @Valid UserModelAuthorization user
+    public String checkFormAuthorization(@ModelAttribute("userAut") @Valid UserModelAuthorization user
             , BindingResult result, Model model) {
 
         if(result.hasErrors()) {
@@ -75,7 +74,6 @@ public class MyController {
             return "lkk_user";
         }
     }
-
 
     /**
      * В методе модели класса UserModelRegistration присваивается имя атрибута userReg
@@ -97,7 +95,7 @@ public class MyController {
      * @param model новосозданная модель для передачи в html lkk_user
      */
     @PostMapping("/lkk_registration")
-    public String lkk(@ModelAttribute("userReg") @Valid UserModelRegistration user
+    public String checkFormRegistration(@ModelAttribute("userReg") @Valid UserModelRegistration user
             , BindingResult result, Model model) {
 
         if(result.hasErrors()) {
@@ -111,4 +109,71 @@ public class MyController {
             return "lkk_user";
         }
     }
+
+    @GetMapping("transaction")
+    public String getModelTransaction(Model model) {
+        model.addAttribute("transaction", new BankTransactionModel());
+        model.addAttribute("typeTransaction", TypeTransaction.values());
+
+        return "transaction_form";
+    }
+
+    @PostMapping("check_transaction")
+    public String checkFormTransaction(@ModelAttribute("transaction") @Valid BankTransactionModel transactionModel
+            , BindingResult result, Model model) {
+
+        if(result.hasErrors()) {
+            return "transaction_form";
+        }
+        else {
+            model.addAttribute("user", userEntity);
+
+            bankTransactionService.saveTransaction(new BankTransactionEntity(transactionModel.getType()
+                    , new BigDecimal(transactionModel.getAmount()), userEntity.getId()));
+
+            if(transactionModel.getType().equals("PUT")){
+                userEntity.setBalance(userEntity.getBalance().add(new BigDecimal(transactionModel.getAmount())));
+                userService.updateUser(userEntity);
+                System.out.println("put if");
+            }
+            else {
+                userEntity.setBalance(userEntity.getBalance().subtract(new BigDecimal(transactionModel.getAmount())));
+                userService.updateUser(userEntity);
+                System.out.println("take off else");
+            }
+
+            return "lkk_user";
+        }
+    }
+
+    @GetMapping("profile")
+    public String userProfile(Model model) {
+        model.addAttribute("user", userEntity);
+        return "user_profile";
+    }
+
+    @GetMapping("lkk_user")
+    public String LkkUser(Model model) {
+        model.addAttribute("user", userEntity);
+
+        return "lkk_user";
+    }
+
+    @GetMapping("transactionPut")
+    public String transactionPut() {
+
+        return "transaction_put";
+    }
+
+    @GetMapping("transactionTakeOff")
+    public String transactionTakeOff() {
+
+        return "transaction_take_off";
+    }
+
+    @GetMapping("transactionAll")
+    public String transactionAll() {
+        return "transaction_all";
+    }
+
 }

@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BankTransactionRepository extends JpaRepository<BankTransactionEntity, Integer> {
 
-    public List<BankTransactionEntity> findAllByIdUser(int userId);
+    List<BankTransactionEntity> findAllByIdUser(int userId);
+
+    List<BankTransactionEntity> findAllByIdUserAndType(int idUser, String type);
 
 }
