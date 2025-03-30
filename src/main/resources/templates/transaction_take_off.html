@@ -6,6 +6,11 @@
 </head>
 <body>
 
+  <h2> Список списаний </h2>
+  <ul>
+    <li th:each="transactions : ${transactions}" th:text="${transactions}"></li>
+  </ul>
+
   <button onclick="location.href='lkk_user'"> Back </button>
 </body>
 </html>

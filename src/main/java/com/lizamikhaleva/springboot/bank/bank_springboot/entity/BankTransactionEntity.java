@@ -1,5 +1,6 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.entity;
 
+import com.lizamikhaleva.springboot.bank.bank_springboot.TypeTransaction;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -14,6 +15,7 @@ public class BankTransactionEntity {
     private int id;
 
     @Column(name = "name_operations")
+//    @Enumerated(EnumType.STRING)
     private String type;
 
     @Column(name = "amount")
@@ -59,20 +61,23 @@ public class BankTransactionEntity {
         this.amount = amount;
     }
 
-//    public UserEntity getUserEntity() {
-//        return userEntity;
-//    }
-//
-//    public void setUserEntity(UserEntity userEntity) {
-//        this.userEntity = userEntity;
-//    }
-
-
     public int getIdUser() {
         return idUser;
     }
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    @Override
+    public String toString() {
+
+        String typeOper = "";
+        if(type.equals("PUT"))
+            typeOper = "пополнение";
+        else typeOper = "снятие со счета";
+
+        return "Тип трансакции = " + typeOper + ", \t" +
+                " сумма = " + amount;
     }
 }

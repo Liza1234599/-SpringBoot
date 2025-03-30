@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
+//12345689aA!
 //@RestController
 @Controller
 @RequestMapping("/bank")
@@ -103,6 +104,7 @@ public class MyController {
         }
         else {
             userEntity = new UserEntity(user.getUsername(), user.getPassword());
+            userEntity.setBalance(new BigDecimal("2500"));
             userService.saveUser(userEntity);
             model.addAttribute("user", userEntity);
 
@@ -149,6 +151,7 @@ public class MyController {
     @GetMapping("profile")
     public String userProfile(Model model) {
         model.addAttribute("user", userEntity);
+
         return "user_profile";
     }
 
@@ -160,19 +163,25 @@ public class MyController {
     }
 
     @GetMapping("transactionPut")
-    public String transactionPut() {
-
+    public String transactionPut(Model model) {
+        model.addAttribute("transactions",
+                bankTransactionService.findAllByIdUserAndType(userEntity.getId(), "PUT"));
         return "transaction_put";
     }
 
     @GetMapping("transactionTakeOff")
-    public String transactionTakeOff() {
+    public String transactionTakeOff(Model model) {
+        model.addAttribute("transactions",
+                bankTransactionService.findAllByIdUserAndType(userEntity.getId(), "TAKEOFF"));
 
         return "transaction_take_off";
     }
 
     @GetMapping("transactionAll")
-    public String transactionAll() {
+    public String transactionAll(Model model) {
+        model.addAttribute("transactions",
+                bankTransactionService.findAllByIdUser(userEntity.getId()));
+
         return "transaction_all";
     }
 

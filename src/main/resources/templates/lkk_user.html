@@ -5,18 +5,16 @@
 <body>
 <h2> LKK Bank </h2>
 <h3 th:text="'Текущий баланс составляет: ' + ${user.balance} + ' рублей'"></h3>
-<br> <br>
+<br>
 
 <h4> Показать операции по счету </h4>
-<button onclick="location.href='transactionPut'"> Пополнение </button>
-<button onclick="location.href='transactionTakeOff'"> Снятие со счета </button>
-<button onclick="location.href='transactionAll'"> Все </button>
-
-
-Что вы хотите сделать?
+<button onclick="location.href='transactionPut'">  Пополнение   </button>
+<button onclick="location.href='transactionTakeOff'">  Снятие со счета  </button>
+<button onclick="location.href='transactionAll'">  Все  </button>
+<br>
 
 <br>
-<button onclick="location.href='transaction'"> Transaction </button>
+<button onclick="location.href='transaction'"> Get transaction </button>
 <button onclick="location.href='profile'"> Profile </button>
 <button onclick="location.href='/bank'"> Exit </button>
 
