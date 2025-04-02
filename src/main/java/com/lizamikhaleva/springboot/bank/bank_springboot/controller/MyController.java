@@ -1,13 +1,13 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.controller;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.TypeTransaction;
+import com.lizamikhaleva.springboot.bank.bank_springboot.enums.TypeTransaction;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransactionEntity;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
 import com.lizamikhaleva.springboot.bank.bank_springboot.model.BankTransactionModel;
 import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelAuthorization;
 import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelRegistration;
-import com.lizamikhaleva.springboot.bank.bank_springboot.service.bankTransactionService.BankTransactionService;
-import com.lizamikhaleva.springboot.bank.bank_springboot.service.userService.UserService;
+import com.lizamikhaleva.springboot.bank.bank_springboot.service.BankTransactionService;
+import com.lizamikhaleva.springboot.bank.bank_springboot.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,5 +1,6 @@
-package com.lizamikhaleva.springboot.bank.bank_springboot.validation.uniquaeUsername;
+package com.lizamikhaleva.springboot.bank.bank_springboot.validation;
 
+import com.lizamikhaleva.springboot.bank.bank_springboot.validation.uniquaeUsername.UniqueUsernameValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

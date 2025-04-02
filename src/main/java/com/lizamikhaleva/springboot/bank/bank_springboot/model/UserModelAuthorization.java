@@ -1,6 +1,6 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.model;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.validation.loginMatch.LoginMatch;
+import com.lizamikhaleva.springboot.bank.bank_springboot.validation.LoginMatch;
 
 import java.math.BigDecimal;
 

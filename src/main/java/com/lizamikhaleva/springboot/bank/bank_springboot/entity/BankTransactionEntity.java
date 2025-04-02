@@ -1,6 +1,5 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.entity;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.TypeTransaction;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;

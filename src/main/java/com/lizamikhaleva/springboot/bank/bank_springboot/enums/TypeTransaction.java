@@ -1,4 +1,4 @@
-package com.lizamikhaleva.springboot.bank.bank_springboot;
+package com.lizamikhaleva.springboot.bank.bank_springboot.enums;
 
 public enum TypeTransaction {
     PUT("Положить деньги на счет"),

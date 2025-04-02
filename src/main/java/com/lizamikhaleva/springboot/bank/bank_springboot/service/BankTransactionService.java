@@ -1,4 +1,4 @@
-package com.lizamikhaleva.springboot.bank.bank_springboot.service.bankTransactionService;
+package com.lizamikhaleva.springboot.bank.bank_springboot.service;
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransactionEntity;
 

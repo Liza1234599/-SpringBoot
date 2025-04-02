@@ -1,5 +1,6 @@
-package com.lizamikhaleva.springboot.bank.bank_springboot.validation.loginMatch;
+package com.lizamikhaleva.springboot.bank.bank_springboot.validation;
 
+import com.lizamikhaleva.springboot.bank.bank_springboot.validation.loginMatch.LoginMatchValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

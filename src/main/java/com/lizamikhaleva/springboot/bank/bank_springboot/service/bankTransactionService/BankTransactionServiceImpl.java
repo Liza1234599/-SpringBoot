@@ -2,6 +2,7 @@ package com.lizamikhaleva.springboot.bank.bank_springboot.service.bankTransactio
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.dao.BankTransactionRepository;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransactionEntity;
+import com.lizamikhaleva.springboot.bank.bank_springboot.service.BankTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

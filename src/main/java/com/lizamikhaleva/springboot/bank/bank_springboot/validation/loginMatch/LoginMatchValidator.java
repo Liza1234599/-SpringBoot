@@ -3,6 +3,7 @@ package com.lizamikhaleva.springboot.bank.bank_springboot.validation.loginMatch;
 import com.lizamikhaleva.springboot.bank.bank_springboot.dao.UserRepository;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
 import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelAuthorization;
+import com.lizamikhaleva.springboot.bank.bank_springboot.validation.LoginMatch;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

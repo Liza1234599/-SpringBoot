@@ -2,6 +2,7 @@ package com.lizamikhaleva.springboot.bank.bank_springboot.service.userService;
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.dao.UserRepository;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
+import com.lizamikhaleva.springboot.bank.bank_springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.model;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.validation.uniquaeUsername.UniqueUsername;
+import com.lizamikhaleva.springboot.bank.bank_springboot.validation.UniqueUsername;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;

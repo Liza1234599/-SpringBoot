@@ -1,4 +1,4 @@
-package com.lizamikhaleva.springboot.bank.bank_springboot.service.userService;
+package com.lizamikhaleva.springboot.bank.bank_springboot.service;
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
 

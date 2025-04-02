@@ -1,10 +1,6 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.model;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.TypeTransaction;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
-
-import java.math.BigDecimal;
 
 public class BankTransactionModel {
 
