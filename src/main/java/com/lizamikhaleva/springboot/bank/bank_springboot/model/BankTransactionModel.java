@@ -9,8 +9,6 @@ public class BankTransactionModel {
     @Pattern(regexp = "^[1-9][0-9]*$", message = "Строка должна содержать только цифры и первая не 0")
     private String amount;
 
-    private int idUser;
-
     public BankTransactionModel() {
     }
 
@@ -28,13 +26,5 @@ public class BankTransactionModel {
 
     public void setAmount(String amount) {
         this.amount = amount;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
     }
 }

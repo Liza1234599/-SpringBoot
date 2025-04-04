@@ -89,11 +89,4 @@ public class UserEntity {
         this.balance = balance;
     }
 
-//    public List<BankTransactionEntity> getTransactList() {
-//        return transactList;
-//    }
-//
-//    public void setTransactList(List<BankTransactionEntity> transactList) {
-//        this.transactList = transactList;
-//    }
 }

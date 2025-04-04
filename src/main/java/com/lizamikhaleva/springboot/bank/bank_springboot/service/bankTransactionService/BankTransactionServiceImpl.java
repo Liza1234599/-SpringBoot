@@ -16,25 +16,8 @@ public class BankTransactionServiceImpl implements BankTransactionService {
     private BankTransactionRepository bankTransactionRepository;
 
     @Override
-    public List<BankTransactionEntity> getAllTransaction() {
-        return bankTransactionRepository.findAll();
-    }
-
-    @Override
     public void saveTransaction(BankTransactionEntity bankTransact) {
         bankTransactionRepository.save(bankTransact);
-    }
-
-    @Override
-    public BankTransactionEntity getTransaction(int id) {
-        BankTransactionEntity transaction = null;
-        Optional<BankTransactionEntity> optional = bankTransactionRepository.findById(id);
-
-        if (optional.isPresent()) {
-            transaction = optional.get();
-        }
-
-        return transaction;
     }
 
     @Override

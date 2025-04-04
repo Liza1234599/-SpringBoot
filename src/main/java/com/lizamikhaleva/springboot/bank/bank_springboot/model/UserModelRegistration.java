@@ -18,25 +18,7 @@ public class UserModelRegistration {
     @NotBlank(message = "Поле не должно быть пустым")
     private String password;
 
-    private BigDecimal balance = new BigDecimal("2000");
-
-    public UserModelRegistration() {
-
-    }
-
-    public UserModelRegistration(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                " username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", balance=" + balance +
-                '}';
-    }
+    public UserModelRegistration() {    }
 
     public String getUsername() {
         return username;
@@ -52,14 +34,6 @@ public class UserModelRegistration {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
     }
 }
 

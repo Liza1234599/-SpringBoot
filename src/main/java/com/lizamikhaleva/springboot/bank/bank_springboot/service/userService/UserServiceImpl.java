@@ -20,26 +20,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteEmployee(int id) {
-        userRepository.deleteById(id);
-    }
-
-    @Override
-    public List<UserEntity> findAll() {
-        return userRepository.findAll();
-    }
-
-    @Override
-    public boolean checkLoginToDB(String username) {
-        return userRepository.existsUserEntityByUsername(username);
-    }
-
-    @Override
-    public boolean checkLoginAndPassword(String username, String password) {
-        return userRepository.existsUserEntityByUsernameAndPassword(username, password);
-    }
-
-    @Override
     public UserEntity findUserByUsernameAndPassword(String username, String password) {
         return userRepository.findUserEntitiesByUsernameAndPassword(username, password);
     }

@@ -41,7 +41,6 @@ public class MyController {
         return "first_view";
     }
 
-
     /**
      * В методе модели класса UserModelAuthorization присваивается имя атрибута userAut
      * @param model новосозданная модель для передачи в html
@@ -130,16 +129,19 @@ public class MyController {
         else {
             model.addAttribute("user", userEntity);
 
-            bankTransactionService.saveTransaction(new BankTransactionEntity(transactionModel.getType()
-                    , new BigDecimal(transactionModel.getAmount()), userEntity.getId()));
+            bankTransactionService.saveTransaction(
+                    new BankTransactionEntity(transactionModel.getType(),
+                            new BigDecimal(transactionModel.getAmount()), userEntity.getId()));
 
             if(transactionModel.getType().equals("PUT")){
-                userEntity.setBalance(userEntity.getBalance().add(new BigDecimal(transactionModel.getAmount())));
+                userEntity.setBalance(userEntity.getBalance()
+                        .add(new BigDecimal(transactionModel.getAmount())));
                 userService.updateUser(userEntity);
                 System.out.println("put if");
             }
             else {
-                userEntity.setBalance(userEntity.getBalance().subtract(new BigDecimal(transactionModel.getAmount())));
+                userEntity.setBalance(userEntity.getBalance()
+                        .subtract(new BigDecimal(transactionModel.getAmount())));
                 userService.updateUser(userEntity);
                 System.out.println("take off else");
             }
@@ -184,5 +186,4 @@ public class MyController {
 
         return "transaction_all";
     }
-
 }
