@@ -1,6 +1,6 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.validation.loginMatch;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.dao.UserRepository;
+import com.lizamikhaleva.springboot.bank.bank_springboot.repository.UserRepository;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
 import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelAuthorization;
 import jakarta.validation.ConstraintValidatorContext;

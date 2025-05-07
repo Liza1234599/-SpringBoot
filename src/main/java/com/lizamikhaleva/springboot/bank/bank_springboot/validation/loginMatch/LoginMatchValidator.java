@@ -1,6 +1,6 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.validation.loginMatch;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.dao.UserRepository;
+import com.lizamikhaleva.springboot.bank.bank_springboot.repository.UserRepository;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
 import com.lizamikhaleva.springboot.bank.bank_springboot.model.UserModelAuthorization;
 import com.lizamikhaleva.springboot.bank.bank_springboot.validation.LoginMatch;
@@ -26,7 +26,9 @@ public class LoginMatchValidator implements ConstraintValidator<LoginMatch, User
             return false;
         }
 
-        // Проверяем, совпадает ли пароль
+        /**
+         * Проверка совпадения пароля
+         */
         return user.getPassword().equals(userModelAuthorization.getPassword());
     }
 }

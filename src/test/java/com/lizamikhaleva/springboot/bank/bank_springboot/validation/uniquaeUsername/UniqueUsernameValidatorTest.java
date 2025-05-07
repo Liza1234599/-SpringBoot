@@ -1,6 +1,6 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.validation.uniquaeUsername;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.dao.UserRepository;
+import com.lizamikhaleva.springboot.bank.bank_springboot.repository.UserRepository;
 import jakarta.validation.ConstraintValidatorContext;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

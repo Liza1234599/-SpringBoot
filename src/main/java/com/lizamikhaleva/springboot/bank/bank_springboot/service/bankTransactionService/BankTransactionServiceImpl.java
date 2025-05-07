@@ -1,13 +1,12 @@
 package com.lizamikhaleva.springboot.bank.bank_springboot.service.bankTransactionService;
 
-import com.lizamikhaleva.springboot.bank.bank_springboot.dao.BankTransactionRepository;
+import com.lizamikhaleva.springboot.bank.bank_springboot.repository.BankTransactionRepository;
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransactionEntity;
 import com.lizamikhaleva.springboot.bank.bank_springboot.service.BankTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BankTransactionServiceImpl implements BankTransactionService {
@@ -30,4 +29,7 @@ public class BankTransactionServiceImpl implements BankTransactionService {
         return bankTransactionRepository.findAllByIdUserAndType(idUser, type);
     }
 
+    public void setBankTransactionRepository(BankTransactionRepository bankTransactionRepository) {
+        this.bankTransactionRepository = bankTransactionRepository;
+    }
 }

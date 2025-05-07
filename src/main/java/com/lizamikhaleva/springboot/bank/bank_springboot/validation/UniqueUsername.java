@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = UniqueUsernameValidator.class)
 public @interface UniqueUsername {
 
-    String message() default "Пользователь с таким логином зарегистрирован";
+    String message() default "Пользователь с таким логином уже зарегистрирован";
 
     Class<?>[] groups() default {};
 

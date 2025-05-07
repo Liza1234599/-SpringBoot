@@ -14,15 +14,10 @@ public class BankTransactionEntity {
     private int id;
 
     @Column(name = "name_operations")
-//    @Enumerated(EnumType.STRING)
     private String type;
 
     @Column(name = "amount")
     private BigDecimal amount;
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id_user")
-//    private UserEntity userEntity;
 
     @Column(name = "id_user")
     private int idUser;

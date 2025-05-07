@@ -3,8 +3,6 @@ package com.lizamikhaleva.springboot.bank.bank_springboot.model;
 import com.lizamikhaleva.springboot.bank.bank_springboot.validation.UniqueUsername;
 import jakarta.validation.constraints.*;
 
-import java.math.BigDecimal;
-
 public class UserModelRegistration {
 
     @Size(min = 5, max = 26, message = "Логин должен быть от 5 до 25 имволов ")

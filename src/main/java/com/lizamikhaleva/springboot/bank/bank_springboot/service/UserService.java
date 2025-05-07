@@ -4,10 +4,7 @@ import com.lizamikhaleva.springboot.bank.bank_springboot.entity.UserEntity;
 
 public interface UserService {
 
-    void saveUser(UserEntity user);
+    void saveOrUpdateUser(UserEntity user);
 
     UserEntity findUserByUsernameAndPassword(String username, String password);
-
-    void updateUser(UserEntity user);
-
 }

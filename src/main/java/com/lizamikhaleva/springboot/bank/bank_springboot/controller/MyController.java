@@ -17,11 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
-//12345689aA!
-//@RestController
 @Controller
 @RequestMapping("/bank")
-//@Validated
 public class MyController {
 
     @Autowired
@@ -104,13 +101,19 @@ public class MyController {
         else {
             userEntity = new UserEntity(user.getUsername(), user.getPassword());
             userEntity.setBalance(new BigDecimal("2500"));
-            userService.saveUser(userEntity);
+            userService.saveOrUpdateUser(userEntity);
             model.addAttribute("user", userEntity);
 
             return "lkk_user";
         }
     }
 
+    /**
+     * Модели класса BankTransactionModel присваивается имя transaction
+     * Модели класса TypeTransaction.values присваивается имя typeTransaction
+     * @param model объект транзакции
+     * @return странца заполнения полей транзакии
+     */
     @GetMapping("transaction")
     public String getModelTransaction(Model model) {
         model.addAttribute("transaction", new BankTransactionModel());
@@ -119,6 +122,13 @@ public class MyController {
         return "transaction_form";
     }
 
+    /**
+     * Метод получает BankTransactionModel и проверяет на валидность
+     * @param transactionModel переданный объект из формы
+     * @param result объект для проверки валидности
+     * @param model модель для передачи иноформации далее
+     * @return личный кабинет пользователя
+     */
     @PostMapping("check_transaction")
     public String checkFormTransaction(@ModelAttribute("transaction") @Valid BankTransactionModel transactionModel
             , BindingResult result, Model model) {
@@ -136,13 +146,13 @@ public class MyController {
             if(transactionModel.getType().equals("PUT")){
                 userEntity.setBalance(userEntity.getBalance()
                         .add(new BigDecimal(transactionModel.getAmount())));
-                userService.updateUser(userEntity);
+                userService.saveOrUpdateUser(userEntity);
                 System.out.println("put if");
             }
             else {
                 userEntity.setBalance(userEntity.getBalance()
                         .subtract(new BigDecimal(transactionModel.getAmount())));
-                userService.updateUser(userEntity);
+                userService.saveOrUpdateUser(userEntity);
                 System.out.println("take off else");
             }
 
@@ -150,6 +160,11 @@ public class MyController {
         }
     }
 
+    /**
+     *
+     * @param model модель пользователя
+     * @return профиль пользователя
+     */
     @GetMapping("profile")
     public String userProfile(Model model) {
         model.addAttribute("user", userEntity);
@@ -164,6 +179,11 @@ public class MyController {
         return "lkk_user";
     }
 
+    /**
+     * Метод получения транзакций пополнения
+     * @param model модель транзакции
+     * @return информация о транзакциях PUT
+     */
     @GetMapping("transactionPut")
     public String transactionPut(Model model) {
         model.addAttribute("transactions",
@@ -171,6 +191,11 @@ public class MyController {
         return "transaction_put";
     }
 
+    /**
+     * Метод получения транзакций снятия со счета
+     * @param model модель транзакции
+     * @return информация о транзакциях TakeOff
+     */
     @GetMapping("transactionTakeOff")
     public String transactionTakeOff(Model model) {
         model.addAttribute("transactions",
@@ -179,6 +204,11 @@ public class MyController {
         return "transaction_take_off";
     }
 
+    /**
+     * Метод получения всех операций по счету
+     * @param model модель транзакции
+     * @return информация о транзакциях
+     */
     @GetMapping("transactionAll")
     public String transactionAll(Model model) {
         model.addAttribute("transactions",

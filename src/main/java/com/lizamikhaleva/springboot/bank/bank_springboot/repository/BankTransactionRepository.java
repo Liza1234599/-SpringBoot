@@ -1,4 +1,4 @@
-package com.lizamikhaleva.springboot.bank.bank_springboot.dao;
+package com.lizamikhaleva.springboot.bank.bank_springboot.repository;
 
 import com.lizamikhaleva.springboot.bank.bank_springboot.entity.BankTransactionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
