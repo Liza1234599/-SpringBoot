@@ -3,19 +3,19 @@
     <title>Bank</title>
 </head>
 <body>
-<h2> Logging to Bank1 </h2>
+<h2> Авторизация в Bank1 </h2>
     <br>
 <form th:action="@{/bank/lkk_authorization}" th:object="${userAut}" method="post">
 
     <div>
-        <label for="username">Your login:</label>
+        <label for="username">Ваш логин:</label>
         <input type="text" id="username" th:field="*{username}"/>
     </div>
 
     <br><br>
 
     <div>
-        <label for="password">Password:</label>
+        <label for="password">Пароль:</label>
         <input type="password" id="password" th:field="*{password}" />
     </div>
 
@@ -25,7 +25,7 @@
 
     <br><br>
 
-    <button type="submit">Authorization</button>
+    <button type="submit">Авторизация</button>
 </form>
 </body>
 </html>
